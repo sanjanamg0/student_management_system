@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  .form-container
+    h2 ✏ Edit Student
+
+    form.edit-form(action=`/update/${student._id}`, method="POST")
+      .form-group
+        label(for="name") Name
+        input#name(type="text", name="name", value=student.name, placeholder="Enter student name", required)
+
+      .form-group
+        label(for="age") Age
+        input#age(type="number", name="age", value=student.age, placeholder="Enter age", required)
+
+      .form-group
+        label(for="course") Course
+        input#course(type="text", name="course", value=student.course, placeholder="Enter course name", required)
+
+      .form-actions
+        button.btn.btn-update(type="submit") ✅ Update Student
+        a.btn.btn-cancel(href="/") ❌ Cancel
